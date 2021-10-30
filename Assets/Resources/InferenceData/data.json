@@ -1,0 +1,11 @@
+{
+	"InferenceInfo":
+	[
+		{
+			"houseNums": [3, 6, 9],
+		},
+		{
+			"houseNums": [2, 1, 5],
+		}
+	]
+}

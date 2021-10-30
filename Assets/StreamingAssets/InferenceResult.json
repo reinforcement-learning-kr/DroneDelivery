@@ -1,0 +1,78 @@
+{
+  "inferenceResults": [
+    {
+      "episodeNum": 1,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -2.968555,
+      "goalTimeList": []
+    },
+    {
+      "episodeNum": 2,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -28.8293171,
+      "goalTimeList": []
+    },
+    {
+      "episodeNum": 3,
+      "deliveryCompleteCount": 3,
+      "DurationOfTime": 7.16619873,
+      "rawScore": 189.418777,
+      "goalTimeList": [
+        6.90173054,
+        5.98347759,
+        8.613388
+      ]
+    },
+    {
+      "episodeNum": 4,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -16.4992828,
+      "goalTimeList": []
+    },
+    {
+      "episodeNum": 5,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -11.5648527,
+      "goalTimeList": []
+    },
+    {
+      "episodeNum": 6,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -14.1995487,
+      "goalTimeList": []
+    },
+    {
+      "episodeNum": 7,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -14.2153044,
+      "goalTimeList": []
+    },
+    {
+      "episodeNum": 8,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -6.86906052,
+      "goalTimeList": []
+    },
+    {
+      "episodeNum": 9,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -12.5929594,
+      "goalTimeList": []
+    },
+    {
+      "episodeNum": 10,
+      "deliveryCompleteCount": 0,
+      "DurationOfTime": 0.0,
+      "rawScore": -12.4753618,
+      "goalTimeList": []
+    }
+  ]
+}
