@@ -25,6 +25,18 @@ public class DroneSetting : MonoBehaviour
     public int House_count = 0;
 
     [System.Serializable]
+    public class UserSetParams
+    {
+        [SerializeField]
+        public float reward = 0;
+        [SerializeField]
+        public float penalty = 0;
+        [SerializeField]
+        public float distanceRewardScale = 0;
+    }
+
+
+    [System.Serializable]
     public class Parameters
     {
         [SerializeField]
@@ -35,10 +47,6 @@ public class DroneSetting : MonoBehaviour
         public int normalMaxStep = 0;
         [SerializeField]
         public int hardMaxStep = 0;
-        [SerializeField]
-        public float reward = 0;
-        [SerializeField]
-        public float penalty = 0;
         [SerializeField]
         public int horiRayCount = 0;
         [SerializeField]
@@ -119,6 +127,8 @@ public class DroneSetting : MonoBehaviour
     [SerializeField]
     public Parameters parameters;
     [SerializeField]
+    public UserSetParams userSetParams;
+    [SerializeField]
     public TotalInferenceResult totalInferenceResult = new TotalInferenceResult();
 
     public Inference_Type InferenceType
@@ -189,7 +199,7 @@ public class DroneSetting : MonoBehaviour
         string json_Str = string.Empty;
         json_Str = File.ReadAllText(string.Format("{0}/Parameters.json", path));
 
-        parameters = JsonConvert.DeserializeObject<Parameters>(json_Str);
+        userSetParams = JsonConvert.DeserializeObject<UserSetParams>(json_Str);
     }
 
     public void Load_Inference_Data()
@@ -197,8 +207,22 @@ public class DroneSetting : MonoBehaviour
         if (Inference_Type.NONE == inferenceType)
             return;
 
-        string path = string.Format("{0}/StreamingAssets/Inference_Data", Application.dataPath);
+        string path = string.Empty;
         string json_Str = string.Empty;
+
+        if (Application.platform == RuntimePlatform.OSXPlayer)
+        {
+            path = string.Format("{0}/Resources/Data/StreamingAssets/Inference_Data", Application.dataPath);
+            json_Str = string.Empty;
+        }
+        else
+        {
+            path = string.Format("{0}/StreamingAssets/Inference_Data", Application.dataPath);
+            json_Str = string.Empty;
+        }
+
+        path = string.Format("{0}/Inference_Data", Application.streamingAssetsPath);
+        json_Str = string.Empty;
 
         switch (gameDifficulty)
         {
@@ -343,7 +367,7 @@ public class DroneSetting : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space))
             AreaSetting();
-# endif
+#endif
     }
 
     public void EndEpisode(DroneAgent.DoneType doneType)

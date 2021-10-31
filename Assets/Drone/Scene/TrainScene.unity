@@ -885,22 +885,24 @@ MonoBehaviour:
   cameraTrans: {fileID: 1715640925}
   DroneTrans: {fileID: 8748916265902211205}
   parameters:
-    basicMaxStep: 0
-    easyMaxStep: 0
-    normalMaxStep: 0
-    hardMaxStep: 0
+    basicMaxStep: 200
+    easyMaxStep: 200
+    normalMaxStep: 500
+    hardMaxStep: 1000
+    horiRayCount: 12
+    horiRayDis: 2
+    bottomRayDis: 1
+    dropOffDistance: 1
+    wareHouseDistance: 1.5
+    movableRange: 40
+    defaultObsSize: 10
+    topRayDis: 1
+    verticalRayCount: 24
+    verticalRayDis: 2
+  userSetParams:
     reward: 0
     penalty: 0
-    horiRayCount: 0
-    horiRayDis: 0
-    bottomRayDis: 0
-    dropOffDistance: 0
-    wareHouseDistance: 0
-    movableRange: 0
-    defaultObsSize: 0
-    topRayDis: 0
-    verticalRayCount: 0
-    verticalRayDis: 0
+    distanceRewardScale: 0
   totalInferenceResult:
     inferenceResults: []
 --- !u!4 &825528119
@@ -1363,7 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 1
+  TakeActionsBetweenDecisions: 0
 --- !u!1 &952069901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,7 +2221,7 @@ Transform:
   m_GameObject: {fileID: 3143016279259040169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 25.9, z: 0}
-  m_LocalScale: {x: 0.0027777778, y: 0.0027777778, z: 0.0027777778}
+  m_LocalScale: {x: 0.0033783785, y: 0.0033783785, z: 0.0033783785}
   m_Children:
   - {fileID: 3143016279259040197}
   m_Father: {fileID: 0}

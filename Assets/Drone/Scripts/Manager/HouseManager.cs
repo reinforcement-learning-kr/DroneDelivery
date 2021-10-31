@@ -206,47 +206,6 @@ public class HouseManager : MonoSingleton<HouseManager>
         remainCount = maxCount;
     }
 
-    public float DistfromMaxAgent(Vector3 agentPos)
-    {
-        float max_reward = 0f;
-
-        for(int i = 0; i < curDestHouseList.Count; i++)
-        {
-            float curDis = Vector3.Distance(curDestHouseList[i].GetDropOffPos(), agentPos);
-
-            if (max_reward < preDisList[i] - curDis)
-                max_reward = preDisList[i] - curDis;
-
-            preDisList[i] = curDis;
-        }
-
-        return max_reward;
-    }
-
-    public float DistfromNearAgent(Vector3 agentPos)
-    {
-        float minDist = float.MaxValue;
-        int index = 0;
-        float reward = 0f;
-
-        for (int i = 0; i < curDestHouseList.Count; i++)
-        {
-            float curDis = Vector3.Distance(curDestHouseList[i].GetDropOffPos(), agentPos);
-
-            if (minDist > curDis)
-            {
-                index = i;
-                reward = preDisList[i] - curDis;
-                minDist = curDis;
-            }
-
-            preDisList[i] = curDis;
-        }
-
-        return reward;
-    }
-
-
     public Vector3 GetDestPosition()
     {
         Vector3 pos = Vector3.zero;
@@ -353,27 +312,5 @@ public class HouseManager : MonoSingleton<HouseManager>
             parcel_type = curDestHouse.Parcel_type;
 
         return parcel_type;
-    }
-
-    public void SetCurrentDestHouse(Vector3 agentPos)
-    {
-        nearestIndex = 0;
-        float minDistance = float.MaxValue;
-
-        for (int i = 0; i < curDestHouseList.Count; i++)
-        {
-            if (null == curDestHouseList[i])
-                continue;
-
-            float distance = Vector3.Distance(agentPos, curDestHouseList[i].Trans.position);
-
-            if(minDistance > distance)
-            {
-                minDistance = distance;
-                nearestIndex = i;
-            }
-        }
-
-        curDestHouse = curDestHouseList[nearestIndex];
     }
 }

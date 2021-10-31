@@ -201,7 +201,7 @@ public class DroneAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        AddReward(-0.01f);
+        SetReward(-0.01f);
 
         var disAction = actionBuffers.DiscreteActions;
         var conActions = actionBuffers.ContinuousActions;
@@ -229,10 +229,10 @@ public class DroneAgent : Agent
             {
                 episodeTime = 0f;
                 if (0 == houseManager.RemainCount)
-                    ProcEpisodeEnd(DoneType.complete, area.parameters.reward);
+                    ProcEpisodeEnd(DoneType.complete, area.userSetParams.reward);
                 else
                 {
-                    SetReward(area.parameters.reward);
+                    SetReward(area.userSetParams.reward);
                     SetAcitveParcel(true, houseManager.GetCurdestPacelType());
                 }
             }
@@ -240,7 +240,7 @@ public class DroneAgent : Agent
             {
                 float cur_dist = Vector3.Distance(destPos, Trans.position);
                 float reward = preDis - cur_dist;
-                AddReward(reward);
+                SetReward(reward * area.userSetParams.distanceRewardScale);
                 preDis = cur_dist;
             }
         }
@@ -256,14 +256,14 @@ public class DroneAgent : Agent
                 if (null != EnterWareHouseTrigger_del)
                     EnterWareHouseTrigger_del();
 
-                SetReward(area.parameters.reward);
+                SetReward(area.userSetParams.reward);
 
                 Vector3 destPos = houseManager.GetDestPosition();
                 preDis = Vector3.Distance(destPos, Trans.position);
             }
             else
             {
-                AddReward(preDis - dis);
+                SetReward((preDis - dis) * area.userSetParams.distanceRewardScale);
                 preDis = dis;
             }
         }
@@ -271,14 +271,14 @@ public class DroneAgent : Agent
         float disFromArea = Vector3.Magnitude(Trans.position - area.AreaPos);
         if (disFromArea > area.parameters.movableRange)
         {
-            ProcEpisodeEnd(DoneType.spaceout, area.parameters.penalty);
+            ProcEpisodeEnd(DoneType.spaceout, area.userSetParams.penalty);
         }
 
         bottom_ray.origin = Trans.position;
         bottom_ray.direction = Vector3.down;
 
         if (Physics.Raycast(bottom_ray.origin, bottom_ray.direction, out bottom_rayHit, 0.3f))
-            ProcEpisodeEnd(DoneType.crush, area.parameters.penalty);
+            ProcEpisodeEnd(DoneType.crush, area.userSetParams.penalty);
 
         curEpisodeReward = GetCumulativeReward();
     }
@@ -453,7 +453,7 @@ public class DroneAgent : Agent
 
         // if (null != birdCon)
         // birdCon.Re_position();
-        preDis = Vector3.Magnitude(Trans.position - area.WareHousePos);
+      //  preDis = Vector3.Magnitude(Trans.position - area.WareHousePos);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -481,7 +481,7 @@ public class DroneAgent : Agent
             case "building":
             case "Ground":
             case "Bird": // 이정우: bird 추가
-                ProcEpisodeEnd(DoneType.crush, area.parameters.penalty);
+                ProcEpisodeEnd(DoneType.crush, area.userSetParams.penalty);
                 break;
         }
     }
