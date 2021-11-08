@@ -885,22 +885,24 @@ MonoBehaviour:
   cameraTrans: {fileID: 1715640925}
   DroneTrans: {fileID: 8748916265902211205}
   parameters:
-    basicMaxStep: 0
-    easyMaxStep: 0
-    normalMaxStep: 0
-    hardMaxStep: 0
+    basicMaxStep: 200
+    easyMaxStep: 200
+    normalMaxStep: 500
+    hardMaxStep: 1000
+    horiRayCount: 12
+    horiRayDis: 2
+    bottomRayDis: 1
+    dropOffDistance: 1
+    wareHouseDistance: 1.5
+    movableRange: 40
+    defaultObsSize: 10
+    topRayDis: 1
+    verticalRayCount: 24
+    verticalRayDis: 2
+  userSetParams:
     reward: 0
     penalty: 0
-    horiRayCount: 0
-    horiRayDis: 0
-    bottomRayDis: 0
-    dropOffDistance: 0
-    wareHouseDistance: 0
-    movableRange: 0
-    defaultObsSize: 0
-    topRayDis: 0
-    verticalRayCount: 0
-    verticalRayDis: 0
+    distanceRewardScale: 0
   totalInferenceResult:
     inferenceResults: []
 --- !u!4 &825528119

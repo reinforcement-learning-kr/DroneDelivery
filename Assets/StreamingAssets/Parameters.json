@@ -1,21 +1,8 @@
 
 {	
-	"basicMaxStep" : 200,
-	"easyMaxStep" : 20000,
-	"normalMaxStep" : 500,
-	"hardMaxStep" : 1000,
 	"reward" : 100,
 	"penalty" : -100,
-	"horiRayCount" : 12,
-	"horiRayDis" : 2,
-	"bottomRayDis": 0.4,
-	"dropOffDistance": 2,
-	"wareHouseDistance" : 1.5,
-	"movableRange": 40,
-	"defaultObsSize" : 10,
-	"topRayDis": 0.4,
-	"verticalRayCount" : 24,
-	"verticalRayDis" : 2,
+	"distanceRewardScale": 1
 }
 	
 

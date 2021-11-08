@@ -321,12 +321,18 @@ public class DroneSetting : MonoBehaviour
         InferenceResult curResult = new InferenceResult();
         curResult.episodeNum = episode;
         curResult.deliveryCompleteCount = houseManager.MaxDest - houseManager.RemainCount;
-        curResult.goalTimeList = houseManager.goalTimeList;
+        curResult.goalTimeList = new List<float>();
+        curResult.goalTimeList.AddRange(houseManager.goalTimeList);
         curResult.rawScore = agent.curEpisodeReward;
 
         curResult.CalculateOverall();
 
         totalInferenceResult.inferenceResults.Add(curResult);
+
+        string path = string.Format("{0}/StreamingAssets", Application.dataPath);
+
+        string json_data = JsonConvert.SerializeObject(totalInferenceResult, Formatting.Indented);
+        File.WriteAllText(path + "/InferenceResult.json", json_data);
     }
 
     public void EndInference()
@@ -336,7 +342,7 @@ public class DroneSetting : MonoBehaviour
         string json_data = JsonConvert.SerializeObject(totalInferenceResult, Formatting.Indented);
         File.WriteAllText(path + "/InferenceResult.json", json_data);
 
-        Application.Quit();
+        //Application.Quit();
     }
 
     public void EnterWareHouseTrigger()

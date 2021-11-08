@@ -97,8 +97,9 @@ public class HouseManager : MonoSingleton<HouseManager>
     {
         if (inference_index >= 10)
         {
-            if(null != endInference_del)
-                endInference_del();
+            // if(null != endInference_del)
+            //     endInference_del();
+            Application.Quit();
         }
 
         goalTimeList.Clear();
