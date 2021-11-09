@@ -26,7 +26,7 @@ public class HouseManager : MonoSingleton<HouseManager>
 
     private Inference_Type inferenceType = Inference_Type.NONE;
     private int nearestIndex = 0;
-    private int inference_index = 0;
+    public int inference_index = 0;
 
     public int MaxDest { get { return maxDest; } }
     public int RemainCount { get { return remainCount; } }
@@ -143,8 +143,10 @@ public class HouseManager : MonoSingleton<HouseManager>
         }
         else
         {
-            indexList = InferenceInfoList[inference_index].houseNums;
-            inference_index++;
+            if(inference_index < InferenceInfoList.Count)
+                indexList = InferenceInfoList[inference_index].houseNums;
+           // Debug.LogWarning(inference_index);
+            //inference_index++;
         }
 
         for (int i = 0; i < houseList.Count; i++)

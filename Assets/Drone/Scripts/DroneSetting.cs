@@ -275,7 +275,7 @@ public class DroneSetting : MonoBehaviour
         mainUI = mainUIIns.GetComponent<UI_Main>();
     }
 
-    int seedIndex = 0;
+    public int seedIndex = 0;
     public void AreaSetting()
     {
         if (null != Trigger)
@@ -300,7 +300,7 @@ public class DroneSetting : MonoBehaviour
         if (Inference_Type.NONE != inferenceType)
         {
             Random.InitState(InferenceInfoList[seedIndex].randomSeed);
-            seedIndex++;
+           // seedIndex++;
         }
 
         if (null != agent.birdCon)

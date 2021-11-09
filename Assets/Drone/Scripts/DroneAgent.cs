@@ -428,8 +428,11 @@ public class DroneAgent : Agent
 
         SetReward(reward);
         EndEpisode();
-    }
 
+        area.seedIndex++;
+        houseManager.inference_index++;
+    }
+    int count = 1;
     public override void OnEpisodeBegin()
     {
         area.AreaSetting();
