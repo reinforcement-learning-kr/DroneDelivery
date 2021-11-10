@@ -150,7 +150,8 @@ public class DroneAgent : Agent
         horiRayAngleInterval = 360 / horiRayCount;
         verticalRayAngleInterval = 360 / verticalRayCount;
 
-        this.MaxStep = maxStepByDifficulty * decisionRequestTime;
+        //this.MaxStep = maxStepByDifficulty * decisionRequestTime;
+        this.MaxStep = 0;
     }
 
     public void SetInputSize(DroneSetting.Parameters parameters)
@@ -191,6 +192,7 @@ public class DroneAgent : Agent
         sensor.AddObservation(CheckHorizontalRay());
         sensor.AddObservation(CheckVerticalRay());
         sensor.AddObservation(CheckTopandBottomRay());
+       
     }
 
     public void SetDelagte(EnterWareHouseTrigger EnterWareHouseTrigger_del_, EpisodeDoneEvent episodeDone_del_)
@@ -281,6 +283,11 @@ public class DroneAgent : Agent
             ProcEpisodeEnd(DoneType.crush, area.userSetParams.penalty);
 
         curEpisodeReward = GetCumulativeReward();
+
+        if(StepCount >= maxStepByDifficulty * decisionRequestTime)
+        {
+            ProcEpisodeEnd(DoneType.maxstep, 0);
+        }
     }
 
     public void LoadFirstHouseInfos()
@@ -405,14 +412,6 @@ public class DroneAgent : Agent
 
     private void ProcEpisodeEnd(DoneType doneType, float reward)
     {
-        switch(doneType)
-        {
-            case DoneType.complete:
-                break;
-            case DoneType.crush:
-                break;
-        }
-
         if (null != episodeDone_del)
             episodeDone_del(doneType);
 
@@ -461,7 +460,6 @@ public class DroneAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-#if UNITY_EDITOR
         var continuousActionsOut = actionsOut.ContinuousActions;
 
         continuousActionsOut[0] = Input.GetAxis("Vertical");
@@ -473,7 +471,6 @@ public class DroneAgent : Agent
             continuousActionsOut[2] = 1f;
         if (Input.GetKey(KeyCode.X))
             continuousActionsOut[2] = -1f;
-#endif
     }
 
     private void OnCollisionEnter(Collision collision)
