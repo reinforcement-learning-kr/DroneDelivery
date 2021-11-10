@@ -96,6 +96,18 @@ public class DroneAgent : Agent
 
     public float curEpisodeReward = 0f;
 
+    public void SetAgentModel(Inference_Type type)
+    {
+        if (Inference_Type.ML_AGENT == type)
+        {
+            NNModel onnxModel = Resources.Load<NNModel>("MyBehavior");
+            behaviorParam.Model = onnxModel;
+            Time.timeScale = 3;
+        }
+        else
+            Time.timeScale = 1;
+    }
+
     public override void Initialize()
     {
         if (null != birdCon)
@@ -124,12 +136,6 @@ public class DroneAgent : Agent
         verticalRayDis = area.parameters.verticalRayDis;
 
         SetInputSize(area.parameters);
-
-        if(Inference_Type.ML_AGENT == area.InferenceType)
-        {
-            NNModel onnxModel = Resources.Load<NNModel>("MyBehavior");
-            behaviorParam.Model = onnxModel;
-        }
 
         hori_ray = new Ray();
         hori_ray.origin = Trans.position;
@@ -426,10 +432,10 @@ public class DroneAgent : Agent
         }
 
         SetReward(reward);
-        EndEpisode();
 
         area.seedIndex++;
         houseManager.inference_index++;
+        EndEpisode();
     }
     int count = 1;
     public override void OnEpisodeBegin()

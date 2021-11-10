@@ -158,6 +158,7 @@ public class DroneSetting : MonoBehaviour
 
         if (null != agent)
         {
+            agent.SetAgentModel(inferenceType);
             agent.SetDelagte(EnterWareHouseTrigger, EndEpisode);
 
             switch (gameDifficulty)
