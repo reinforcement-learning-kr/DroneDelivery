@@ -99,7 +99,7 @@ public class HouseManager : MonoSingleton<HouseManager>
         {
             // if(null != endInference_del)
             //     endInference_del();
-            Application.Quit();
+            //Application.Quit();
         }
 
         goalTimeList.Clear();

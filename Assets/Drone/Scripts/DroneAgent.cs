@@ -433,10 +433,18 @@ public class DroneAgent : Agent
 
         SetReward(reward);
 
-        area.seedIndex++;
-        houseManager.inference_index++;
-        area.episode++;
-        area.SetInferenceResult();
+        if(area.InferenceType != Inference_Type.NONE)
+        {
+            area.seedIndex++;
+            houseManager.inference_index++;
+            area.episode++;
+
+            area.SetInferenceResult();
+
+            if (area.episode >= 10)
+                Application.Quit();
+        }
+
         EndEpisode();
     }
     int count = 1;
