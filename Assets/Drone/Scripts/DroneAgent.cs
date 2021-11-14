@@ -435,6 +435,8 @@ public class DroneAgent : Agent
 
         area.seedIndex++;
         houseManager.inference_index++;
+        area.episode++;
+        area.SetInferenceResult();
         EndEpisode();
     }
     int count = 1;

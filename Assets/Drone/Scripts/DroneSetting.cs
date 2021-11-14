@@ -282,7 +282,7 @@ public class DroneSetting : MonoBehaviour
         if (null != Trigger)
             Trigger.SetActive(false);
 
-        SetInferenceResult();
+        //SetInferenceResult();
 
         houseManager.ResetHouse();
 
@@ -306,11 +306,9 @@ public class DroneSetting : MonoBehaviour
 
         if (null != agent.birdCon)
             agent.birdCon.Re_position();
-
-        episode++;
     }
 
-    int episode = 0;
+    public int episode = 0;
     public void SetInferenceResult()
     {
         if (Inference_Type.NONE == inferenceType)

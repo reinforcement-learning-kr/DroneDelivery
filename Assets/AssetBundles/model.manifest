@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1184633124
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6d7de268d21843875cbb0faf5499d8f3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0d1f0443e4333e5b261bcaef2935b575
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: d56b7ac7bee314a29a9d00b13ccdb4f5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 918083d8e7e25db4ca0bf105a499975e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Resources/MyBehavior.onnx
+Dependencies: []

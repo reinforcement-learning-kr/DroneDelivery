@@ -2,76 +2,82 @@
   "inferenceResults": [
     {
       "episodeNum": 1,
-      "deliveryCompleteCount": 0,
-      "DurationOfTime": 0.0,
-      "rawScore": -2.968555,
-      "goalTimeList": []
-    },
-    {
-      "episodeNum": 2,
-      "deliveryCompleteCount": 0,
-      "DurationOfTime": 0.0,
-      "rawScore": -28.8293171,
-      "goalTimeList": []
-    },
-    {
-      "episodeNum": 3,
-      "deliveryCompleteCount": 3,
-      "DurationOfTime": 7.16619873,
-      "rawScore": 189.418777,
+      "deliveryCompleteCount": 1,
+      "DurationOfTime": 6.21183729,
+      "rawScore": 97.8259,
       "goalTimeList": [
-        6.90173054,
-        5.98347759,
-        8.613388
+        6.21183729
       ]
     },
     {
-      "episodeNum": 4,
+      "episodeNum": 2,
+      "deliveryCompleteCount": 1,
+      "DurationOfTime": 6.679596,
+      "rawScore": 90.428215,
+      "goalTimeList": [
+        6.679596
+      ]
+    },
+    {
+      "episodeNum": 3,
       "deliveryCompleteCount": 0,
       "DurationOfTime": 0.0,
-      "rawScore": -16.4992828,
+      "rawScore": 11.93081,
       "goalTimeList": []
+    },
+    {
+      "episodeNum": 4,
+      "deliveryCompleteCount": 1,
+      "DurationOfTime": 9.412305,
+      "rawScore": 100.266541,
+      "goalTimeList": [
+        9.412305
+      ]
     },
     {
       "episodeNum": 5,
       "deliveryCompleteCount": 0,
       "DurationOfTime": 0.0,
-      "rawScore": -11.5648527,
+      "rawScore": 1.26065254,
       "goalTimeList": []
     },
     {
       "episodeNum": 6,
-      "deliveryCompleteCount": 0,
-      "DurationOfTime": 0.0,
-      "rawScore": -14.1995487,
-      "goalTimeList": []
+      "deliveryCompleteCount": 1,
+      "DurationOfTime": 11.9294758,
+      "rawScore": 105.748489,
+      "goalTimeList": [
+        11.9294758
+      ]
     },
     {
       "episodeNum": 7,
       "deliveryCompleteCount": 0,
       "DurationOfTime": 0.0,
-      "rawScore": -14.2153044,
+      "rawScore": 14.74044,
       "goalTimeList": []
     },
     {
       "episodeNum": 8,
       "deliveryCompleteCount": 0,
       "DurationOfTime": 0.0,
-      "rawScore": -6.86906052,
+      "rawScore": 1.29204369,
       "goalTimeList": []
     },
     {
       "episodeNum": 9,
-      "deliveryCompleteCount": 0,
-      "DurationOfTime": 0.0,
-      "rawScore": -12.5929594,
-      "goalTimeList": []
+      "deliveryCompleteCount": 1,
+      "DurationOfTime": 6.380754,
+      "rawScore": 100.743851,
+      "goalTimeList": [
+        6.380754
+      ]
     },
     {
       "episodeNum": 10,
       "deliveryCompleteCount": 0,
       "DurationOfTime": 0.0,
-      "rawScore": -12.4753618,
+      "rawScore": 0.937580168,
       "goalTimeList": []
     }
   ]
