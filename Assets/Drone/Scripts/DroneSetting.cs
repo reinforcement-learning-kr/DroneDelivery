@@ -3,6 +3,7 @@ using Unity.MLAgents;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
+using System.Collections;
 
 public enum Inference_Type : int
 {
@@ -153,6 +154,21 @@ public class DroneSetting : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(InitProc());
+        return;
+    }
+
+
+    bool init = false;
+    IEnumerator InitProc()
+    {
+        yield return new WaitForSeconds(0.5f);
+        totalInit();
+    }
+
+    public void totalInit()
+    {
+
         Load_Inference_Data();
         Load_Params();
 
@@ -191,6 +207,8 @@ public class DroneSetting : MonoBehaviour
 
         houseManager.endInference_del = EndInference;
         totalInferenceResult.inferenceResults = new List<InferenceResult>();
+
+        init = true;
     }
 
     public void Load_Params()
@@ -358,6 +376,10 @@ public class DroneSetting : MonoBehaviour
 
     public void Update()
     {
+
+        if (false == init)
+            return;
+
         float elapesd = Time.deltaTime;
 
         if(null != houseManager)
